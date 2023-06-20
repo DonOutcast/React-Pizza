@@ -17,7 +17,7 @@ return (<div className="pizza-block">
     {
       props.types.map(
         (type) => (
-          <li
+          <li key={type}
           onClick={() => setActiveType(type)}
           className={activeType === type ? 'active' : ''}
           >{typeNames[type]}</li>
@@ -27,7 +27,7 @@ return (<div className="pizza-block">
   </ul>
   <ul>
     {
-      props.sizezs.map((size, index) => <li onClick={() => setActiveSize(index)} className={activeSize === index ? 'active' : '' }>{size} см.</li>)
+      props.sizezs.map((size, index) => <li key={index} onClick={() => setActiveSize(index)} className={activeSize === index ? 'active' : '' }>{size} см.</li>)
     }
   </ul>
 </div>
