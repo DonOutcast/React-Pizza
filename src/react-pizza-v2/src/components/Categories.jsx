@@ -24,7 +24,7 @@ function Categories() {
           <li key={i} onClick={() => onClickCategory(i)} className={activeIndex === i ? "active" : ''}>{value}</li> 
           )
         )
-        };
+        }
       </ul>
     </div>
     )
