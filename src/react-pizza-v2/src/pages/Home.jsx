@@ -9,10 +9,12 @@ const Home = () => {
       // https://64983dcb9543ce0f49e1ca37.mockapi.io/items
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [categoyId, setCategoryId] = React.useState(0);
+  const [sortType, setSortType] = React.useState(0);
   
   React.useEffect(() => {
-    
-    fetch('https://64983dcb9543ce0f49e1ca37.mockapi.io/items').then(
+    setIsLoading(false);
+    fetch('https://64983dcb9543ce0f49e1ca37.mockapi.io/items?caetgory=' + categoyId).then(
       (response) => {
         return response.json(); 
       }
@@ -21,11 +23,11 @@ const Home = () => {
       setIsLoading(false);
     });
     window.scrollTo(0, 0);
-    }, []);
+    }, [categoyId]);
     return (
       <div className="container">
             <div className="content__top">
-                <Categories />
+                <Categories value={categoyId} onClickCategory={(i) => setCategoryId(i)} />
                 <Sort />
             </div>
             <h2 className="content__title">Все пиццы</h2>
