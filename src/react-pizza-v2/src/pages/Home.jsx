@@ -5,8 +5,10 @@ import Sort from "../components/Sort";
 import PizzaBlock from "../components/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/skeleton";
 import Pagination from "../components/Pagination";
+import { SearchContext } from "../App";
 
-const Home = ({ searchValue }) => {
+const Home = () => {
+  const { searchValue } = React.useContext(SearchContext);
   // https://64983dcb9543ce0f49e1ca37.mockapi.io/items
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
